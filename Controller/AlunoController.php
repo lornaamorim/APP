@@ -90,5 +90,6 @@ final class AlunoController extends Controller
         
         // Renderiza o formulário de cadastro/edição de aluno, passando o modelo (dados) para a visualização
         parent::render('Aluno/form_aluno.php', $model);
+        
     }
 } 

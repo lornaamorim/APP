@@ -135,6 +135,32 @@ final class AlunoDAo extends DAO
         // Se não encontrar nenhum aluno, retorna null
         return null;
     }
+
+    public function selectById(int $id) : ?Aluno
+    {
+        $sql = "SELECT * FROM aluno ";
+
+        $stmt = parent::$conexao->prepare($sql);
+        $stmt->execute();
+
+        //Retorna um array com as linhas retornadas da consulta. Observe que
+        //o array é um array de objetos. Os objetos são do tipo stdClass e
+        //foram criados automaticamente pelo método fetchAll do PDO.
+        return $stmt->fetchAll(DAO::FECHT_CLASS, "App\Model\Aluno");
+    }
+
+    /**
+     * Remove um registro da tabela pessoa do banco de dados.
+     * Note que o método exige um parâmetro $id do tipo inteiro.
+     */
+    public function delete(int $id) : bool
+    {
+        $sql = "DELETE FROM aluno WHERE is=? ";
+
+        $stmt = parent::$conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        return $stmt->execute();
+    }
 }
 
 
