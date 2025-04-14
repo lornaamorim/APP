@@ -130,9 +130,10 @@ No arquivo `autoload.php`, o autoload está configurado para carregar automatica
 
 ## Como Rodar a Aplicação
 
-1. **Instale o servidor Apache ou Nginx**: Use um servidor local como o XAMPP ou WAMP, ou configure um servidor web de sua preferência.
-2. **Coloque o código na pasta do servidor**: Coloque os arquivos do projeto na pasta de documentos do seu servidor (por exemplo, `htdocs` para XAMPP).
-3. **Acesse a aplicação pelo navegador**: Abra o navegador e acesse o endereço `http://localhost/[nome-do-projeto]/`.
+1. **Abra a pasta App no VS Code e via terminal inicialize o servidor do PHP**: Use um servidor local como o XAMPP ou WAMP, ou configure um servidor web de sua preferência.
+2. **Se necessário, edite os dados de conexão com MySQL no PHP (host, porta, usuário e senha)**
+3. **php -S localhost:8000**: Abra o navegador e acesse o endereço `http://localhost/[nome-do-projeto]/`.
+4. **Acesse no seu navegador**: http://localhost:8000.
 
 ---
 
