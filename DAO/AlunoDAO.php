@@ -95,50 +95,9 @@ final class AlunoDAo extends DAO
         return $model;
     }
 
-    /**
-     * Método selectById
-     *
-     * Este método busca um aluno no banco de dados com base no seu ID.
-     * Caso o aluno não seja encontrado, o método retornará `null`.
-     *
-     * @param int $id O ID do aluno a ser buscado no banco de dados
-     * @return Aluno|null O modelo Aluno encontrado ou null caso não haja aluno com o ID especificado
-     */
     public function selectById(int $id) : ?Aluno
     {
-        // Define a consulta SQL para buscar o aluno pelo ID
-        $sql = "SELECT * FROM aluno WHERE id=?";
-
-        // Prepara a consulta para execução
-        $stmt = parent::$conexao->prepare($sql);
-
-        // Faz a ligação do parâmetro da consulta com o ID do aluno
-        $stmt->bindValue(1, $id);
-
-        // Executa a consulta
-        $stmt->execute();
-
-        // Recupera os dados retornados pela consulta
-        $result = $stmt->fetch();
-
-        // Se o aluno for encontrado, cria um objeto Aluno e atribui os valores do banco
-        if ($result) {
-            $model = new Aluno();
-            $model->Id = $result['id'];
-            $model->Nome = $result['nome'];
-            $model->RA = $result['ra'];
-            $model->Curso = $result['curso'];
-
-            return $model;
-        }
-
-        // Se não encontrar nenhum aluno, retorna null
-        return null;
-    }
-
-    public function selectById(int $id) : ?Aluno
-    {
-        $sql = "SELECT * FROM aluno ";
+        $sql = "SELECT * FROM aluno";
 
         $stmt = parent::$conexao->prepare($sql);
         $stmt->execute();
