@@ -18,18 +18,18 @@ final class CategoriaController extends Controller
             $model->getAllRows();
         } catch(Exception $e)
         {
-            $model->setError("Ocorreu um erro ao buscar o autor:");
+            $model->setError("Ocorreu um erro ao buscar a categoria: ");
             $model->setError($e->getMessage());
         }
 
-        parent::render('Autor/lista_autor.php', $model);
+        parent::render('Categoria/lista_categoria.php', $model);
     }
 
-    public static function autor() : void
+    public static function cadastro() : void
     {
         parent::isProtected();
 
-        $model = new Autor();
+        $model = new Categoria();
 
         try
         {
@@ -37,14 +37,12 @@ final class CategoriaController extends Controller
             {
                
                 $model->Id = !empty($_POST['id']) ? $_POST['id'] : null; 
-                $model->Nome = $_POST['nome'];
-                $model->Data_nasc = $_POST['data_nasc'];
-                $model->Cpf = $POST['cpf'];
+                $model->Descricao = $_POST['descricao'];
               
                 $model->save(); 
 
              
-                parent::redirect("/autor");
+                parent::redirect("/categoria");
 
             } else {
 
@@ -60,7 +58,7 @@ final class CategoriaController extends Controller
             $model->setError($e->getMessage());
         }
         
-        parent::render('Autor/form_autor.php', $model);
+        parent::render('Categoria/form_categoria.php', $model);
 
     }
     
@@ -68,18 +66,18 @@ final class CategoriaController extends Controller
         {
             parent::isProtected();
 
-            $model = new Autor();
+            $model = new Categoria();
 
             try
             {
                 $model->delete( (int) $_GET['id']);
-                parent::redirect("/autor");
+                parent::redirect("/categoria");
 
             } catch(Exception $e) {
-                $model->setError("Ocorreu um erro ao excluir o autor:");
+                $model->setError("Ocorreu um erro ao excluir a categoria:");
                 $model->setError($e->getMessage());
             }
 
-            parent::render('Autor/lista_autor.php', $model);
+            parent::render('Categoria/form_categoria.php', $model);
         }
     } 

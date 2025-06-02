@@ -1,102 +1,96 @@
 <?php
 
-// Importação de múltiplos controladores para facilitar o gerenciamento de rotas
+
 use App\Controller\{
-    AlunoController,         // Controlador responsável pelas operações dos alunos
-    InicialController,       // Controlador para a página inicial
-    LoginController,         // Controlador para autenticação de usuários (login/logout)
-    AutorController,         // Controlador para operações sobre autores
-    CategoriaController,     // Controlador para categorias de livros
-    LivroController,         // Controlador para operações com livros
-    EmprestimoController     // Controlador para controle de empréstimos de livros
+    AlunoController,        
+    InicialController,      
+    LoginController,       
+    AutorController,       
+    CategoriaController,    
+    LivroController,        
+    EmprestimoController     
 };
 
-// Obtém a URL da requisição atual e extrai o caminho (sem parâmetros)
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Processamento das rotas com base na URL da requisição
 switch ($url)
 {
-    // Rota para a página inicial
+    
     case '/':
-        InicialController::index(); // Chama o método index do InicialController
+        InicialController::index(); 
         break;
 
-    /* Rotas para login */
     case '/login':
-        LoginController::index();  // Chama o método index do LoginController (exibe o formulário de login)
+        LoginController::index();
         break;
 
     case '/logout':
-        LoginController::logout(); // Chama o método logout do LoginController (desloga o usuário)
+        LoginController::logout(); 
         break;
 
-    /* Rotas para alunos */
     case '/aluno':
-        AlunoController::index();  // Chama o método index do AlunoController (lista os alunos)
+        AlunoController::index(); 
         break;
 
     case '/cadastro':
-        AlunoController::cadastro(); // Chama o método cadastro do AlunoController (exibe o formulário de cadastro)
+        AlunoController::cadastro();
         break;
 
     case '/aluno/cadastro':
-        AlunoController::cadastro(); // Chama o método cadastro do AlunoController para um aluno específico
+        AlunoController::cadastro(); 
         break;
 
     case '/aluno/delete':
-        AlunoController::delete(); // Chama o método delete do AlunoController (exclui um aluno)
+        AlunoController::delete(); 
         break;
 
-    /* Rotas para autores */
     case '/autor':
-        AutorController::index(); // Chama o método index do AutorController (lista os autores)
+        AutorController::index(); 
         break;
 
     case '/autor/cadastro':
-        AutorController::cadastro(); // Chama o método cadastro do AutorController (exibe o formulário de cadastro de autor)
+        AutorController::cadastro(); 
         break;
 
     case '/autor/delete':
-        AutorController::delete(); // Chama o método delete do AutorController (exclui um autor)
+        AutorController::delete(); 
         break;
 
-    /* Rotas para categorias */
+
     case '/categoria':
-        CategoriaController::index(); // Chama o método index do CategoriaController (lista as categorias)
+        CategoriaController::index();
         break;
 
     case '/categoria/cadastro':
-        CategoriaController::cadastro(); // Chama o método cadastro do CategoriaController (exibe o formulário de cadastro de categoria)
+        CategoriaController::cadastro();
         break;
 
     case '/categoria/delete':
-        CategoriaController::delete(); // Chama o método delete do CategoriaController (exclui uma categoria)
+        CategoriaController::delete(); 
         break;
 
-    /* Rotas para livros */
     case '/livro':
-        LivroController::index(); // Chama o método index do LivroController (lista os livros)
+        LivroController::index(); 
         break;
 
     case '/livro/cadastro':
-        LivroController::cadastro(); // Chama o método cadastro do LivroController (exibe o formulário de cadastro de livro)
+        LivroController::cadastro(); 
         break;
 
     case '/livro/delete':
-        LivroController::delete(); // Chama o método delete do LivroController (exclui um livro)
+        LivroController::delete(); 
         break;
 
-    /* Rotas para empréstimos */
+
     case '/emprestimo':
-        EmprestimoController::index(); // Chama o método index do EmprestimoController (lista os empréstimos)
+        EmprestimoController::index(); 
         break;
 
     case '/emprestimo/cadastro':
-        EmprestimoController::cadastro(); // Chama o método cadastro do EmprestimoController (exibe o formulário de cadastro de empréstimo)
+        EmprestimoController::cadastro(); 
         break;
 
     case '/emprestimo/delete':
-        EmprestimoController::delete(); // Chama o método delete do EmprestimoController (exclui um empréstimo)
+        EmprestimoController::delete();
         break;
 }

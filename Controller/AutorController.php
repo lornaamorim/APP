@@ -25,7 +25,7 @@ final class AutorController extends Controller
         parent::render('Autor/lista_autor.php', $model);
     }
 
-    public static function autor() : void
+    public static function cadastro() : void
     {
         parent::isProtected();
 
