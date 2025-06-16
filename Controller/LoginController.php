@@ -52,6 +52,7 @@ final class LoginController
     public static function getUsuario() : Login
     {
         return unserialize(serialize($_SESSION['usuario_logado']));
+        
     }
 
 }
