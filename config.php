@@ -13,4 +13,3 @@ $_ENV['db']['user'] = "root";           // Usuário para conectar ao banco de da
 $_ENV['db']['pass'] = "etecjau";        // Senha para o usuário
 $_ENV['db']['database'] = "biblioteca"; // Nome do banco de dados
 
-
