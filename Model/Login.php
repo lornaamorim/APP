@@ -11,9 +11,5 @@ final class Login
     public function logar() : ?Login
     {
         return new LoginDAO()->autenticar($this);
-
-
-
-        
     }
 }

@@ -10,6 +10,6 @@ define('VIEWS', BASE_DIR . '/App/View');
 
 $_ENV['db']['host'] = "localhost:3307"; // Endereço do servidor de banco de dados (com a porta)
 $_ENV['db']['user'] = "root";           // Usuário para conectar ao banco de dados
-$_ENV['db']['pass'] = "etecjau";        // Senha para o usuário
+$_ENV['db']['pass'] = "";        // Senha para o usuário
 $_ENV['db']['database'] = "biblioteca"; // Nome do banco de dados
 
